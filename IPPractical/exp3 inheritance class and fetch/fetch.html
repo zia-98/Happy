@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Fetch Example</title>
+</head>
+<body>
+
+    <h2>Fetch API Example</h2>
+    <button id="fetchButton">Fetch Post</button>
+
+    <script>
+        // Function to fetch data
+        function fetchData() {
+            // API endpoint
+            const url = 'https://jsonplaceholder.typicode.com/posts/1';
+
+            // Using fetch to make a GET request
+            fetch(url)
+                .then(response => {
+                    // Check if the response is okay (status code 200-299)
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json(); // Parse the response as JSON
+                })
+                .then(data => {
+                    // Log the fetched data to the console
+                    console.log('Fetched data:', data);
+                })
+                .catch(error => {
+                    // Handle any errors
+                    console.error('Fetch error:', error);
+                });
+        }
+
+        // Add event listener to the button
+        document.getElementById('fetchButton').addEventListener('click', fetchData);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,3 @@
+step1:npm install express ejs
+step2:npm init
+step3:node app.js

@@ -1,0 +1,25 @@
+step1:mkdir node-demo
+step2:sudo dnf update
+step3:sudo dnf install node.js 
+step4:node -v
+step5:npm -v
+step6:ls
+step7:touch files.js
+code:
+const fs =require('fs');
+fs.writeFile('info.txt','Komal Amberkar\nTEIT 01,Node.js!',(err) => {
+	if (err) {
+		console.error('Error writing to file:',err);
+		return;
+	}
+	console.log('File created and text written successfully.');
+	fs.readFile('sample.txt','utf8',(err,data) => {
+		if (err) {
+			console.error('Error reading file:',err);
+			return;
+		}
+		console.log('File content:',data);
+	});
+});
+
+step8:node files.js
